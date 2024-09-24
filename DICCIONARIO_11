@@ -1,0 +1,78 @@
+import tkinter as tk
+
+class Application(tk.Frame):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.master = master
+        self.pack()
+        self.create_widgets()
+        self.datos_persona = {}
+        self.claves_especificas = {}
+
+    def create_widgets(self):
+        # Crear etiqueta y entrada para el nombre
+        self.nombre_label = tk.Label(self, text="Nombre:")
+        self.nombre_label.pack(side="top")
+        self.nombre_entry = tk.Entry(self)
+        self.nombre_entry.pack(side="top")
+
+        # Crear etiqueta y entrada para la edad
+        self.edad_label = tk.Label(self, text="Edad:")
+        self.edad_label.pack(side="top")
+        self.edad_entry = tk.Entry(self)
+        self.edad_entry.pack(side="top")
+
+        # Crear etiqueta y entrada para la ciudad
+        self.ciudad_label = tk.Label(self, text="Ciudad:")
+        self.ciudad_label.pack(side="top")
+        self.ciudad_entry = tk.Entry(self)
+        self.ciudad_entry.pack(side="top")
+
+        # Crear etiqueta y entrada para la clave específica
+        self.clave_label = tk.Label(self, text="Clave específica:")
+        self.clave_label.pack(side="top")
+        self.clave_entry = tk.Entry(self)
+        self.clave_entry.pack(side="top")
+
+        # Crear botón para agregar datos
+        self.agregar_button = tk.Button(self)
+        self.agregar_button["text"] = "Agregar datos"
+        self.agregar_button["command"] = self.agregar_datos
+        self.agregar_button.pack(side="top")
+
+        # Crear botón para mostrar valor de clave específica
+        self.mostrar_button = tk.Button(self)
+        self.mostrar_button["text"] = "Mostrar valor"
+        self.mostrar_button["command"] = self.mostrar_valor
+        self.mostrar_button.pack(side="top")
+
+        # Crear etiqueta para mostrar el resultado
+        self.resultado_label = tk.Label(self, text="")
+        self.resultado_label.pack(side="top")
+
+        # Crear botón para salir
+        self.salir_button = tk.Button(self)
+        self.salir_button["text"] = "Salir"
+        self.salir_button["command"] = self.master.destroy
+        self.salir_button.pack(side="top")
+
+    def agregar_datos(self):
+        clave_especifica = self.clave_entry.get().lower()
+        if clave_especifica not in self.claves_especificas:
+            self.claves_especificas[clave_especifica] = {}
+        self.claves_especificas[clave_especifica]['nombre'] = self.nombre_entry.get()
+        self.claves_especificas[clave_especifica]['edad'] = int(self.edad_entry.get())
+        self.claves_especificas[clave_especifica]['ciudad'] = self.ciudad_entry.get()
+        print("Datos agregados:", self.claves_especificas)
+
+    def mostrar_valor(self):
+        clave_especifica = self.clave_entry.get().lower()
+        if clave_especifica in self.claves_especificas:
+            valor = self.claves_especificas[clave_especifica]
+            self.resultado_label["text"] = "Valor de la clave '{}' : {}".format(clave_especifica, valor)
+        else:
+            self.resultado_label["text"] = "La clave '{}' no existe en el diccionario".format(clave_especifica)
+
+root = tk.Tk()
+app = Application(master=root)
+app.mainloop()

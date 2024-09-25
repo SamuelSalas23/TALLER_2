@@ -1,6 +1,11 @@
 # TALLER_2
  Crear un diccionario con tres elementos (clave-valor) y mostrar el valor de una clave específica.
 
+<figure style="text-align: center;">
+  <img src="image.png" alt="" width="308" height="647" />
+  <figcaption><strong></strong></figcaption>
+</figure>
+
 ## **Índice**
 1. [**Descripción**](#descripción)
 2. [**Instalación**](#instalación)

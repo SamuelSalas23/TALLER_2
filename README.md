@@ -63,4 +63,4 @@ Este proyecto está licenciado bajo la **MIT License.**
 
 ## Autor
 
-[Smauel Salas Echeverry](https://github.com/SamuelSalas23?tab=repositories.)
+[Samuel Salas Echeverry](https://github.com/SamuelSalas23?tab=repositories.)

@@ -40,6 +40,7 @@ La estructura del código es la siguiente:
    ```
    import tkinter as tk
    ```
+https://www.youtube.com/watch?v=kzX8ptXITXg
 
 2. **Clase `Application`**: Hereda de `tk.Frame` y maneja la interfaz gráfica.
    - **Método `__init__`**: Inicializa la aplicación, empaqueta el frame y llama a `create_widgets`.
